@@ -9,17 +9,17 @@ export default function RealEstatePage() {
         {
             icon: <Box className="w-8 h-8 text-primary" />,
             title: "Realidad Virtual",
-            description: "Recorridos potenciados por 3DVista. Permite a los clientes recorrer la propiedad desde cualquier lugar.",
+            description: "Recorridos virtuales interactivos que permiten visitar la propiedad desde cualquier ubicación.",
         },
         {
             icon: <Camera className="w-8 h-8 text-primary" />,
             title: "Fotografía HDR",
-            description: "Composición e iluminación de grado editorial para listados premium.",
+            description: "Fotografía HDR con estándares editoriales para propiedades exclusivas.",
         },
         {
             icon: <Video className="w-8 h-8 text-primary" />,
             title: "Film Cinemático",
-            description: "Producción de video 4K que cuenta la historia del hogar.",
+            description: "Producción cinematográfica en 4K para narrar la historia de cada espacio.",
         },
     ];
 
@@ -38,7 +38,7 @@ export default function RealEstatePage() {
                     <h1 className="text-7xl md:text-9xl font-display font-bold text-white mb-8 tracking-tighter mix-blend-overlay">
                         REAL<br />ESTATE
                     </h1>
-                    <Button size="lg" glow className="tracking-widest">Agendar Demo</Button>
+                    <Button size="lg" glow className="tracking-widest">Agendar Demostración</Button>
                 </div>
             </section>
 
@@ -63,20 +63,20 @@ export default function RealEstatePage() {
                     <div className="order-2 lg:order-1">
                         <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 leading-tight">La Ventaja <span className="text-primary">Inmersiva</span>.</h2>
                         <p className="text-xl text-foreground/70 mb-10 leading-relaxed font-light">
-                            Las imágenes estáticas están muertas. En el mercado de lujo, la experiencia es todo. Nuestros recorridos 360° mantienen a los visitantes comprometidos un 500% más tiempo.
+                            Elevamos la experiencia de compra. Nuestros recorridos virtuales incrementan significativamente el tiempo de permanencia y el compromiso del cliente.
                         </p>
                         <ul className="space-y-6 mb-12">
                             <li className="flex items-center gap-4 text-foreground/80">
                                 <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
-                                Identifica compradores serios al instante
+                                Identificamos compradores potenciales
                             </li>
                             <li className="flex items-center gap-4 text-foreground/80">
                                 <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
-                                Capacidad de Open House 24/7
+                                Disponibilidad 24/7
                             </li>
                             <li className="flex items-center gap-4 text-foreground/80">
                                 <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
-                                Inserta directamente en tu sitio web
+                                Integración web directa
                             </li>
                         </ul>
                         <Button variant="secondary" className="tracking-widest">Ver Ejemplo en Vivo</Button>

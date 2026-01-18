@@ -10,7 +10,7 @@ export default function Home() {
   const services = [
     {
       title: "Real Estate",
-      description: "Recorridos inmersivos 360° y fotografía HDR que venden propiedades antes de la primera visita.",
+      description: "Recorridos inmersivos 360° y fotografía HDR para acelerar la venta de propiedades.",
       href: "/real-estate",
       // Modern Luxury Home / Night
       image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2671&auto=format&fit=crop",
@@ -24,7 +24,7 @@ export default function Home() {
     },
     {
       title: "Tech & IA",
-      description: "Desarrollo web a medida y agentes inteligentes para automatizar tu ecosistema digital.",
+      description: "Desarrollo web a medida y agentes inteligentes para automatizar ecosistemas digitales.",
       href: "/tech",
       // Abstract Tech / Nodes
       image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2565&auto=format&fit=crop",
@@ -61,12 +61,12 @@ export default function Home() {
           </div>
 
           <p className="text-xl md:text-2xl text-foreground/80 font-light max-w-2xl mx-auto leading-relaxed">
-            La intersección entre <span className="text-white font-medium">Tecnología Inmersiva</span> y <span className="text-white font-medium">Arte Cinematográfico</span>.
+            Fusionamos <span className="text-white font-medium">Tecnología Inmersiva</span> con <span className="text-white font-medium">Arte Cinematográfico</span>.
           </p>
 
           <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-6">
             <Button size="lg" glow>
-              Explorar Ecosistema
+              Explorar Servicios
             </Button>
           </div>
         </div>
@@ -89,18 +89,18 @@ export default function Home() {
           </div>
           <div className="md:col-span-7 space-y-8">
             <p className="text-2xl font-light text-surface/90 leading-relaxed font-display">
-              "En una era de ruido, el silencio y la precisión son el máximo lujo."
+              "En la era del ruido, la claridad y la precisión son el verdadero lujo."
             </p>
             <div className="h-[1px] w-full bg-surface/10" />
             <p className="text-lg text-surface/70 leading-relaxed">
-              Construyo ecosistemas digitales completos. Desde el código que impulsa tu automatización hasta los visuales que definen el alma de tu marca. Mi enfoque es holístico: la tecnología debe verse hermosa, y el arte debe funcionar impecablemente.
+              Desarrollamos ecosistemas digitales integrales. Desde el código que potencia la automatización hasta la identidad visual que define a la marca. Nuestro enfoque es holístico: tecnología estética y funcionalidad impecable.
             </p>
             <div className="grid grid-cols-2 gap-8 pt-8">
               <div>
                 <h4 className="text-lg font-bold text-surface mb-2">Técnico</h4>
                 <ul className="text-sm text-surface/60 space-y-1">
                   <li>Desarrollo Next.js</li>
-                  <li>Integración de Agentes IA</li>
+                  <li>Integración de IA</li>
                   <li>Automatización de Flujos</li>
                 </ul>
               </div>
@@ -109,7 +109,7 @@ export default function Home() {
                 <ul className="text-sm text-surface/60 space-y-1">
                   <li>Recorridos Virtuales 360°</li>
                   <li>Fotografía Editorial</li>
-                  <li>Filmmaking Cinemático</li>
+                  <li>Producción Cinematográfica</li>
                 </ul>
               </div>
             </div>
@@ -121,11 +121,11 @@ export default function Home() {
       <Section className="bg-surface/20">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-4">Módulos Centrales</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-4">Nuestros Servicios</h2>
             <div className="h-1 w-24 bg-primary" />
           </div>
           <p className="text-foreground/50 max-w-sm text-right">
-            Selecciona un módulo para entrar al entorno especializado.
+            Seleccione un módulo para conocer nuestra oferta especializada.
           </p>
         </div>
 
@@ -145,10 +145,10 @@ export default function Home() {
             INICIAR<br />PROYECTO
           </h2>
           <p className="text-xl text-foreground/60 mb-16 max-w-xl mx-auto font-light">
-            ¿Listo para desplegar tu nueva realidad digital? Hablemos de tus requerimientos.
+            ¿Listos para desplegar su nueva realidad digital? Analicemos los requerimientos.
           </p>
           <Button size="lg" glow className="px-16 py-8 text-lg">
-            Comenzar Comunicación
+            Contactar
           </Button>
         </div>
       </Section>

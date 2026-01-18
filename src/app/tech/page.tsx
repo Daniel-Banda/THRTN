@@ -33,7 +33,7 @@ export default function TechPage() {
                             </span>
                         </h1>
                         <p className="text-xl text-foreground/70 max-w-xl leading-relaxed mb-10 font-light">
-                            Arquitectamos infraestructuras digitales inteligentes. Desde aplicaciones web de alto rendimiento hasta agentes autónomos que escalan tus operaciones mientras duermes.
+                            Diseñamos infraestructuras digitales inteligentes. Aplicaciones web de alto rendimiento y agentes autónomos para escalar sus operaciones.
                         </p>
                         <div className="flex gap-6">
                             <Button glow>Iniciar Proyecto</Button>
@@ -61,21 +61,21 @@ export default function TechPage() {
                         <Code className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
                         <h3 className="text-3xl font-display font-bold mb-6 text-surface">Full Stack Web</h3>
                         <p className="text-surface/70 text-sm leading-relaxed font-light">
-                            Aplicaciones React y Next.js ultra rápidas. Renderizado del lado del servidor para un SEO perfecto y cargas instantáneas.
+                            Desarrollo de aplicaciones web rápidas y optimizadas para motores de búsqueda.
                         </p>
                     </div>
                     <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
                         <Cpu className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
                         <h3 className="text-3xl font-display font-bold mb-6 text-surface">Agentes IA</h3>
                         <p className="text-surface/70 text-sm leading-relaxed font-light">
-                            Integraciones personalizadas de LLM. Chatbots que venden, analizan datos y realizan acciones de forma autónoma.
+                            Integración de modelos de lenguaje para análisis de datos y atención al cliente automatizada.
                         </p>
                     </div>
                     <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
                         <Workflow className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
                         <h3 className="text-3xl font-display font-bold mb-6 text-surface">Automatización</h3>
                         <p className="text-surface/70 text-sm leading-relaxed font-light">
-                            Scripts de Zapier, Make y Python para eliminar tareas manuales de tu lógica de negocio.
+                            Automatización de procesos empresariales mediante scripts y flujos de trabajo personalizados.
                         </p>
                     </div>
                 </div>

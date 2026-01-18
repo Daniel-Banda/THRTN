@@ -33,7 +33,7 @@ export default function StudioPage() {
                 <div className="max-w-4xl mx-auto text-center relative">
                     <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-[200px] font-display font-bold text-white/5 select-none pointer-events-none">ARTE</div>
                     <p className="text-3xl md:text-5xl font-light leading-snug font-display text-white relative z-10">
-                        "No tomamos fotos. Capturamos el <span className="text-primary italic font-bold">aura</span> del momento."
+                        "Capturamos la <span className="text-primary italic font-bold">esencia</span> de cada momento con una perspectiva única."
                     </p>
                 </div>
             </Section>
@@ -60,7 +60,7 @@ export default function StudioPage() {
 
             <section className="py-40 text-center bg-surface">
                 <h2 className="text-sm font-mono tracking-[0.3em] text-primary mb-8 glow">AGENDA TU SESIÓN</h2>
-                <Button size="lg" glow className="px-20 text-lg">CONTACTO</Button>
+                <Button size="lg" glow className="px-20 text-lg">AGENDAR SESIÓN</Button>
             </section>
 
             <Footer />
