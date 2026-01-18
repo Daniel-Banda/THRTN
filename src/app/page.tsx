@@ -148,7 +148,7 @@ export default function Home() {
             Comencemos con una consulta estratégica para evaluar tu infraestructura actual y diseñar el plan ideal para tu transformación digital.
           </p>
           <Button size="lg" glow className="px-16 py-8 text-lg">
-            Contactar
+            Agendar Reunión
           </Button>
         </div>
       </Section>
