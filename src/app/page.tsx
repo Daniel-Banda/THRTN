@@ -145,7 +145,7 @@ export default function Home() {
             INICIAR<br />PROYECTO
           </h2>
           <p className="text-xl text-foreground/60 mb-16 max-w-xl mx-auto font-light">
-            ¿Listos para desplegar su nueva realidad digital? Analicemos los requerimientos.
+            Comencemos con una consulta estratégica para evaluar tu infraestructura actual y diseñar el plan ideal para tu transformación digital.
           </p>
           <Button size="lg" glow className="px-16 py-8 text-lg">
             Contactar
