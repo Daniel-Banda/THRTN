@@ -1,25 +1,21 @@
 import type { Metadata } from "next";
-import { Italiana, Manrope, Cinzel } from "next/font/google";
+import { Syne, Inter } from "next/font/google";
 import "./globals.css";
 
-const italiana = Italiana({
-  weight: "400",
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-italiana",
+  variable: "--font-syne",
+  display: "swap",
 });
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-manrope",
-});
-
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  variable: "--font-cinzel",
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Daniel Banda | Creative Ecosystem",
+  title: "THRTN | Defining the Unknown",
   description: "Portafolio y servicios integrales: Real Estate, Web Dev, IA, Fotografía y Cine.",
 };
 
@@ -31,7 +27,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${italiana.variable} ${manrope.variable} ${cinzel.variable} font-sans antialiased bg-background text-foreground`}
+        suppressHydrationWarning
+        className={`${syne.variable} ${inter.variable} antialiased bg-background text-foreground font-sans`}
       >
         {children}
       </body>

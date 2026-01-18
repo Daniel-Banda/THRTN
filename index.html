@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel — Real Estate Media Studio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bone: '#F5F3EF',
+            gold: '#C9A24D',
+            accent: '#2ED3C6',
+            dark: '#0B0B0C'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            highlight: ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-dark text-bone font-sans">
+
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="font-serif text-5xl md:text-7xl mb-6 text-bone">
+      Elevamos propiedades
+      <span class="text-gold">a experiencias visuales</span>
+    </h1>
+
+    <p class="max-w-2xl text-lg text-gray-300 mb-10">
+      Producción visual premium para Real Estate: fotografía, filmmaking, tours 360° y páginas web que venden.
+    </p>
+
+    <div class="flex gap-6">
+      <a href="#servicios" class="px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-dark transition">
+        Ver servicios
+      </a>
+      <a href="#contacto" class="px-8 py-3 bg-gold text-dark hover:opacity-90 transition">
+        Cotizar proyecto
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-24 px-8 max-w-6xl mx-auto">
+    <h2 class="font-serif text-4xl mb-14 text-center">
+      Servicios
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <div class="border border-white/10 p-6 hover:border-gold transition">
+        <h3 class="font-highlight text-xl mb-3 text-gold">Fotografía Inmobiliaria</h3>
+        <p class="text-gray-300">Imágenes profesionales enfocadas en espacio, luz y percepción de valor.</p>
+      </div>
+
+      <div class="border border-white/10 p-6 hover:border-gold transition">
+        <h3 class="font-highlight text-xl mb-3 text-gold">Filmmaking</h3>
+        <p class="text-gray-300">Videos cinematográficos para redes, brokers y desarrollos.</p>
+      </div>
+
+      <div class="border border-white/10 p-6 hover:border-gold transition">
+        <h3 class="font-highlight text-xl mb-3 text-gold">Tours 360°</h3>
+        <p class="text-gray-300">Recorridos inmersivos ideales para preventa y clientes remotos.</p>
+      </div>
+
+      <div class="border border-white/10 p-6 hover:border-gold transition">
+        <h3 class="font-highlight text-xl mb-3 text-gold">Páginas Web</h3>
+        <p class="text-gray-300">Landing pages inmobiliarias optimizadas para conversión.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ESPECIALIZACIÓN -->
+  <section class="bg-black py-24 px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="font-serif text-4xl mb-8">Especialistas en Real Estate</h2>
+      <p class="text-gray-300 max-w-3xl mx-auto">
+        No solo hacemos contenido bonito. Diseñamos material visual pensado para generar confianza, acelerar decisiones y aumentar el valor percibido de cada propiedad.
+      </p>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section class="py-24 px-8 max-w-6xl mx-auto">
+    <h2 class="font-serif text-4xl mb-14 text-center">Portafolio</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-neutral-900 h-64 flex items-center justify-center text-gray-500">Proyecto 1</div>
+      <div class="bg-neutral-900 h-64 flex items-center justify-center text-gray-500">Proyecto 2</div>
+      <div class="bg-neutral-900 h-64 flex items-center justify-center text-gray-500">Proyecto 3</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 text-center bg-gradient-to-b from-black to-dark">
+    <h2 class="font-serif text-4xl mb-6">¿Listo para vender mejor?</h2>
+    <p class="text-gray-300 mb-10">Trabajemos tu próxima propiedad como una marca premium.</p>
+    <a href="#contacto" class="px-10 py-4 bg-gold text-dark font-highlight tracking-wide">
+      Agendar proyecto
+    </a>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-24 px-8 max-w-xl mx-auto">
+    <h2 class="font-serif text-4xl mb-10 text-center">Contacto</h2>
+
+    <form class="space-y-6">
+      <input type="text" placeholder="Nombre" class="w-full p-3 bg-black border border-white/20" />
+      <input type="email" placeholder="Correo" class="w-full p-3 bg-black border border-white/20" />
+      <textarea placeholder="Cuéntame tu proyecto" rows="5" class="w-full p-3 bg-black border border-white/20"></textarea>
+      <button class="w-full py-3 bg-gold text-dark font-highlight">Enviar</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-gray-500 text-sm">
+    © 2026 Daniel · Real Estate Media Studio
+  </footer>
+
+</body>
+</html>
