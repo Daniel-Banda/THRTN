@@ -61,7 +61,7 @@ export default function Home() {
           </div>
 
           <p className="text-xl md:text-2xl text-foreground/80 font-light max-w-2xl mx-auto leading-relaxed">
-            Fusionamos <span className="text-white font-medium">Tecnología Inmersiva</span> con <span className="text-white font-medium">Arte Cinematográfico</span>.
+            Creamos <span className="text-white font-medium">soluciones digitales inteligentes</span> con un <span className="text-white font-medium">diseño visual impecable</span>.
           </p>
 
           <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-6">
