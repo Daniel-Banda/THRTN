@@ -89,7 +89,7 @@ export default function Home() {
           </div>
           <div className="md:col-span-7 space-y-8">
             <p className="text-2xl font-light text-surface/90 leading-relaxed font-display">
-              "En la era del ruido, la claridad y la precisión son el verdadero lujo."
+              "La distinción reside en la ejecución perfecta de la tecnología y el diseño."
             </p>
             <div className="h-[1px] w-full bg-surface/10" />
             <p className="text-lg text-surface/70 leading-relaxed">
