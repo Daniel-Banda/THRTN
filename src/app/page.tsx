@@ -99,9 +99,9 @@ export default function Home() {
               <div>
                 <h4 className="text-lg font-bold text-surface mb-2">Técnico</h4>
                 <ul className="text-sm text-surface/60 space-y-1">
-                  <li>Desarrollo Next.js</li>
+                  <li>Desarrollo Web</li>
                   <li>Integración de IA</li>
-                  <li>Automatización de Flujos</li>
+                  <li>Automatización de Procesos</li>
                 </ul>
               </div>
               <div>
