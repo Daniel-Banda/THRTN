@@ -79,34 +79,34 @@ export default function Home() {
       </section>
 
       {/* Philosophy / Intro */}
-      <Section className="border-t border-white/5 py-40">
+      <Section className="bg-foreground py-40">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
           <div className="md:col-span-5 relative">
-            <h2 className="text-5xl md:text-6xl font-display font-bold leading-none sticky top-32">
+            <h2 className="text-5xl md:text-6xl font-display font-bold leading-none sticky top-32 text-surface">
               Arquitectura <br />
-              <span className="text-primary">Digital.</span>
+              <span className="text-luxury">Digital.</span>
             </h2>
           </div>
           <div className="md:col-span-7 space-y-8">
-            <p className="text-2xl font-light text-foreground/90 leading-relaxed font-display">
+            <p className="text-2xl font-light text-surface/90 leading-relaxed font-display">
               "En una era de ruido, el silencio y la precisión son el máximo lujo."
             </p>
-            <div className="h-[1px] w-full bg-white/10" />
-            <p className="text-lg text-foreground/60 leading-relaxed">
+            <div className="h-[1px] w-full bg-surface/10" />
+            <p className="text-lg text-surface/70 leading-relaxed">
               Construyo ecosistemas digitales completos. Desde el código que impulsa tu automatización hasta los visuales que definen el alma de tu marca. Mi enfoque es holístico: la tecnología debe verse hermosa, y el arte debe funcionar impecablemente.
             </p>
             <div className="grid grid-cols-2 gap-8 pt-8">
               <div>
-                <h4 className="text-lg font-bold text-white mb-2">Técnico</h4>
-                <ul className="text-sm text-foreground/60 space-y-1">
+                <h4 className="text-lg font-bold text-surface mb-2">Técnico</h4>
+                <ul className="text-sm text-surface/60 space-y-1">
                   <li>Desarrollo Next.js</li>
                   <li>Integración de Agentes IA</li>
                   <li>Automatización de Flujos</li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-lg font-bold text-white mb-2">Creativo</h4>
-                <ul className="text-sm text-foreground/60 space-y-1">
+                <h4 className="text-lg font-bold text-surface mb-2">Creativo</h4>
+                <ul className="text-sm text-surface/60 space-y-1">
                   <li>Recorridos Virtuales 360°</li>
                   <li>Fotografía Editorial</li>
                   <li>Filmmaking Cinemático</li>
