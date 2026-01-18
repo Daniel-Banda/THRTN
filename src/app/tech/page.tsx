@@ -55,26 +55,26 @@ export default function TechPage() {
             </section>
 
             {/* Services */}
-            <Section className="py-32">
+            <Section className="bg-foreground py-32">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="p-10 bg-surface/50 border border-white/5 hover:border-primary/50 transition-all duration-500 rounded-lg group">
-                        <Code className="w-12 h-12 text-primary mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-3xl font-display font-bold mb-6 text-white">Full Stack Web</h3>
-                        <p className="text-foreground/60 text-sm leading-relaxed font-light">
+                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
+                        <Code className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
+                        <h3 className="text-3xl font-display font-bold mb-6 text-surface">Full Stack Web</h3>
+                        <p className="text-surface/70 text-sm leading-relaxed font-light">
                             Aplicaciones React y Next.js ultra rápidas. Renderizado del lado del servidor para un SEO perfecto y cargas instantáneas.
                         </p>
                     </div>
-                    <div className="p-10 bg-surface/50 border border-white/5 hover:border-secondary/50 transition-all duration-500 rounded-lg group">
-                        <Cpu className="w-12 h-12 text-secondary mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-3xl font-display font-bold mb-6 text-white">Agentes IA</h3>
-                        <p className="text-foreground/60 text-sm leading-relaxed font-light">
+                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
+                        <Cpu className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
+                        <h3 className="text-3xl font-display font-bold mb-6 text-surface">Agentes IA</h3>
+                        <p className="text-surface/70 text-sm leading-relaxed font-light">
                             Integraciones personalizadas de LLM. Chatbots que venden, analizan datos y realizan acciones de forma autónoma.
                         </p>
                     </div>
-                    <div className="p-10 bg-surface/50 border border-white/5 hover:border-white/20 transition-all duration-500 rounded-lg group">
-                        <Workflow className="w-12 h-12 text-white mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-3xl font-display font-bold mb-6 text-white">Automatización</h3>
-                        <p className="text-foreground/60 text-sm leading-relaxed font-light">
+                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
+                        <Workflow className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
+                        <h3 className="text-3xl font-display font-bold mb-6 text-surface">Automatización</h3>
+                        <p className="text-surface/70 text-sm leading-relaxed font-light">
                             Scripts de Zapier, Make y Python para eliminar tareas manuales de tu lógica de negocio.
                         </p>
                     </div>

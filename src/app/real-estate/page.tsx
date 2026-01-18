@@ -43,13 +43,13 @@ export default function RealEstatePage() {
             </section>
 
             {/* Benefits */}
-            <Section className="bg-surface relative z-10 -mt-20 mx-4 md:mx-12 rounded-t-3xl border-t border-white/5 shadow-2xl shadow-black/50">
+            <Section className="bg-foreground relative z-10 -mt-20 mx-4 md:mx-12 rounded-t-3xl border-t border-white/5 shadow-2xl shadow-black/50">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left py-12">
                     {features.map((feature, idx) => (
-                        <div key={idx} className="group p-8 rounded-xl bg-background/50 border border-white/5 hover:border-primary/50 transition-all duration-300">
-                            <div className="mb-6 flex justify-center md:justify-start group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
-                            <h3 className="text-2xl font-display font-bold mb-4">{feature.title}</h3>
-                            <p className="text-foreground/60 leading-relaxed font-light">
+                        <div key={idx} className="group p-8 rounded-xl bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-300">
+                            <div className="mb-6 flex justify-center md:justify-start group-hover:scale-110 transition-transform duration-300 text-luxury">{feature.icon}</div>
+                            <h3 className="text-2xl font-display font-bold mb-4 text-surface">{feature.title}</h3>
+                            <p className="text-surface/70 leading-relaxed font-light">
                                 {feature.description}
                             </p>
                         </div>
