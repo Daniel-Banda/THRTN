@@ -66,7 +66,7 @@ export default function Home() {
 
           <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-6">
             <Button size="lg" glow>
-              Explorar Servicios
+              Agendar Consulta
             </Button>
           </div>
         </div>
