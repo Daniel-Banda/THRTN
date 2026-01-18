@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image"; // Removed unused import
+import { Isotype } from "./Isotype";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -42,14 +43,8 @@ export const Navbar = () => {
                         isScrolled ? "bg-surface/80 w-full max-w-5xl shadow-2xl shadow-black/50" : "bg-transparent w-full max-w-7xl"
                     )}
                 >
-                    <Link href="/" className="relative w-24 h-8 hover:opacity-80 transition-opacity">
-                        <Image
-                            src="/logo.png"
-                            alt="THRTN"
-                            fill
-                            className="object-contain object-left brightness-0 invert"
-                            priority
-                        />
+                    <Link href="/" className="relative flex items-center justify-center w-10 h-10 hover:opacity-80 transition-opacity">
+                        <Isotype className="w-8 h-8 text-white" />
                     </Link>
 
                     {/* Desktop Links */}
