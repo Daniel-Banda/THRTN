@@ -553,16 +553,25 @@ export default function BudgetCalculator() {
                             {page.items.map((item) => (
                               <div key={item.id} className="grid grid-cols-[1fr_50px_70px_auto] gap-2 items-start bg-white/5 p-2 rounded border border-white/5 text-xs">
                                 <div className="space-y-1">
-                                  <input
+                                  <textarea
                                     value={item.description}
-                                    onChange={(e) => updateItem(page.id, item.id, "description", e.target.value)}
-                                    className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none"
+                                    onChange={(e) => {
+                                      updateItem(page.id, item.id, "description", e.target.value);
+                                      e.target.style.height = 'auto';
+                                      e.target.style.height = e.target.scrollHeight + 'px';
+                                    }}
+                                    className="w-full bg-transparent border-b border-white/10 focus:border-primary outline-none resize-none overflow-hidden min-h-[24px]"
                                     placeholder="Descripción"
+                                    rows={1}
                                   />
                                   <textarea
                                     value={item.details || ""}
-                                    onChange={(e) => updateItem(page.id, item.id, "details", e.target.value)}
-                                    className="w-full bg-transparent text-white/40 focus:text-white outline-none resize-none h-auto overflow-hidden"
+                                    onChange={(e) => {
+                                      updateItem(page.id, item.id, "details", e.target.value);
+                                      e.target.style.height = 'auto';
+                                      e.target.style.height = e.target.scrollHeight + 'px';
+                                    }}
+                                    className="w-full bg-transparent text-white/40 focus:text-white outline-none resize-none overflow-hidden min-h-[24px]"
                                     placeholder="Detalles..."
                                     rows={1}
                                   />
@@ -672,7 +681,7 @@ export default function BudgetCalculator() {
                           {page.items.map((item, idx) => (
                             <div key={idx} className="grid grid-cols-[1fr_80px_120px_120px] gap-4 text-base py-3 border-b border-white/5 items-start">
                               <div className="space-y-1">
-                                <div className="text-white/90 font-medium">{item.description}</div>
+                                <div className="text-white/90 font-medium whitespace-pre-wrap">{item.description}</div>
                                 {item.details && (
                                   <div className="text-sm text-white/50 whitespace-pre-wrap">{item.details}</div>
                                 )}
