@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { PopupModal } from "react-calendly";
 import { Navbar } from "@/components/ui/Navbar";
 import Image from "next/image";
 import { Footer } from "@/components/ui/Footer";
@@ -7,6 +11,13 @@ import { ServiceCard } from "@/components/ui/ServiceCard";
 import React from 'react';
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const services = [
     {
       title: "Real Estate",
@@ -65,7 +76,7 @@ export default function Home() {
           </p>
 
           <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-6">
-            <Button size="lg" glow>
+            <Button size="lg" glow onClick={() => setIsOpen(true)}>
               Agendar Consulta
             </Button>
           </div>
@@ -147,11 +158,20 @@ export default function Home() {
           <p className="text-xl text-foreground/60 mb-16 max-w-xl mx-auto font-light">
             Comencemos con una consulta estratégica para evaluar tu infraestructura actual y diseñar el plan ideal para tu transformación digital.
           </p>
-          <Button size="lg" glow className="px-16 py-8 text-lg">
+          <Button size="lg" glow className="px-16 py-8 text-lg" onClick={() => setIsOpen(true)}>
             Agendar Reunión
           </Button>
         </div>
       </Section>
+
+      {isMounted && (
+        <PopupModal
+          url="https://calendly.com/thrtn"
+          onModalClose={() => setIsOpen(false)}
+          open={isOpen}
+          rootElement={document.getElementById("root") || document.body}
+        />
+      )}
 
       <Footer />
     </main>

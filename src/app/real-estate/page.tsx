@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { PopupModal } from "react-calendly";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { Section } from "@/components/ui/Section";
@@ -5,6 +9,13 @@ import { Button } from "@/components/ui/Button";
 import { Box, Camera, Video, ArrowRight } from "lucide-react";
 
 export default function RealEstatePage() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const features = [
         {
             icon: <Box className="w-8 h-8 text-primary" />,
@@ -38,7 +49,7 @@ export default function RealEstatePage() {
                     <h1 className="text-7xl md:text-9xl font-display font-bold text-white mb-8 tracking-tighter mix-blend-overlay">
                         REAL<br />ESTATE
                     </h1>
-                    <Button size="lg" glow className="tracking-widest">Agendar Demostración</Button>
+                    <Button size="lg" glow className="tracking-widest" onClick={() => setIsOpen(true)}>Agendar Demostración</Button>
                 </div>
             </section>
 
@@ -79,15 +90,27 @@ export default function RealEstatePage() {
                                 Integración web directa
                             </li>
                         </ul>
-                        <Button variant="secondary" className="tracking-widest">Ver Ejemplo en Vivo</Button>
+                        {/* Button removed */}
                     </div>
-                    <div className="order-1 lg:order-2 aspect-video bg-black rounded-lg border border-white/10 flex items-center justify-center relative overflow-hidden group shadow-2xl shadow-primary/10">
-                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1628744876497-eb30460be9f6?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
-                        <span className="relative z-10 text-white font-display text-2xl border border-white/20 px-8 py-3 bg-black/40 backdrop-blur-md rounded-full group-hover:bg-primary group-hover:border-primary transition-all duration-300">ENTRAR A VISTA 360°</span>
+                    <div className="order-1 lg:order-2 aspect-video bg-black rounded-lg border border-white/10 relative overflow-hidden shadow-2xl shadow-primary/10">
+                        <iframe
+                            src="https://storage.net-fs.com/hosting/2727323/505/"
+                            className="w-full h-full border-0"
+                            allowFullScreen
+                            loading="lazy"
+                        />
                     </div>
                 </div>
             </Section>
+
+            {isMounted && (
+                <PopupModal
+                    url="https://calendly.com/thrtn"
+                    onModalClose={() => setIsOpen(false)}
+                    open={isOpen}
+                    rootElement={document.getElementById("root") || document.body}
+                />
+            )}
 
             <Footer />
         </main>
