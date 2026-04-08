@@ -15,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "THRTN | Defining the Unknown",
-  description: "Portafolio y servicios integrales: Real Estate, Web Dev, IA, Fotografía y Cine.",
+  title: "THRTN | Automatización, Web y Studio Creativo — Colima",
+  description: "Automatización de procesos con IA, desarrollo web, fotografía, video y campañas Meta Ads. Agencia digital en Colima, México.",
 };
 
 export default function RootLayout({

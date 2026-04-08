@@ -4,14 +4,22 @@ import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Cpu, Code, Workflow, ChevronDown } from "lucide-react";
+import { Workflow, ChevronDown, Bot, Zap, ShoppingCart, LayoutDashboard, Database } from "lucide-react";
 import { VoiceChat } from "@/components/ui/VoiceChat";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { PopupModal } from "react-calendly";
 
 export default function TechPage() {
     const [isStructureOpen, setIsStructureOpen] = useState(false);
     const [isLandingStructureOpen, setIsLandingStructureOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     return (
         <main className="min-h-screen bg-background text-foreground">
             <Navbar />
@@ -19,7 +27,6 @@ export default function TechPage() {
             {/* Hero */}
             <section className="relative pt-48 pb-24 md:pt-64 md:pb-48 px-6 overflow-hidden border-b border-white/5">
                 <div className="absolute inset-0 z-0">
-                    {/* Tech grid background */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] z-10" />
                     <div className="absolute top-0 left-0 w-full h-[500px] bg-primary/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
                 </div>
@@ -31,32 +38,87 @@ export default function TechPage() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                             </span>
-                            AGENTES IA DISPONIBLES
+                            TECH · 3 SERVICIOS DISPONIBLES
                         </div>
                         <h1 className="text-6xl md:text-8xl font-display font-bold mb-8 leading-[1] tracking-tighter text-white">
-                            SÍNTESIS <br />
+                            INGENIERÍA <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                                DE CÓDIGO
+                                DIGITAL
                             </span>
                         </h1>
                         <p className="text-xl text-foreground/70 max-w-xl leading-relaxed mb-10 font-light">
-                            Diseñamos infraestructuras digitales inteligentes. Aplicaciones web de alto rendimiento y agentes autónomos para escalar sus operaciones.
+                            Automatización de procesos, agentes inteligentes y desarrollo web de alto rendimiento para escalar tu operación de extremo a extremo.
                         </p>
                         <div className="flex gap-6">
-                            <Button glow>Iniciar Proyecto</Button>
-                            <Button variant="secondary">Ver Documentación</Button>
+                            <Button glow onClick={() => setIsOpen(true)}>Iniciar Proyecto</Button>
                         </div>
                     </div>
-                    {/* Visual Abstract */}
                     <div className="relative z-10 w-full">
                         <VoiceChat />
                     </div>
                 </div>
             </section>
 
+            {/* Automatización & IA */}
+            <Section className="bg-foreground py-32 border-b border-surface/10">
+                <div className="mb-16 text-center">
+                    <div className="inline-block border border-white/10 bg-white/5 backdrop-blur-sm px-4 py-1 rounded-full mb-6">
+                        <span className="text-xs font-mono text-primary uppercase tracking-widest">Automatización & Inteligencia Artificial</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-display font-bold text-surface mb-6">Automatización de procesos con IA</h2>
+                    <p className="text-surface/60 max-w-2xl mx-auto font-light">
+                        Mapeamos tu operación, identificamos cuellos de botella e implementamos agentes de IA y flujos automáticos en n8n — integrados con WhatsApp, Google Sheets, CRM y Gmail.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
+                        <Workflow className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
+                        <h3 className="text-2xl font-display font-bold mb-4 text-surface">Auditoría BPMN</h3>
+                        <p className="text-surface/60 text-sm leading-relaxed font-light mb-6">
+                            Antes de automatizar, dibujamos cómo funciona tu operación. Con metodología BPMN identificamos tareas repetitivas, cuellos de botella y oportunidades de mejora.
+                        </p>
+                        <ul className="space-y-2 text-sm text-surface/50">
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Mapa visual del proceso actual</li>
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Identificación de ineficiencias</li>
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Diseño del flujo ideal antes de programar</li>
+                        </ul>
+                    </div>
+
+                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
+                        <Bot className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
+                        <h3 className="text-2xl font-display font-bold mb-4 text-surface">Agentes de IA</h3>
+                        <p className="text-surface/60 text-sm leading-relaxed font-light mb-6">
+                            Empleados digitales que razonan y toman decisiones. Resumen leads, califican prospectos, responden mensajes y escalan cuando algo requiere atención humana.
+                        </p>
+                        <ul className="space-y-2 text-sm text-surface/50">
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Chatbot en WhatsApp con IA (demo: +52 312 374 3960)</li>
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Calificación automática de leads</li>
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Integración con CRM o base de datos</li>
+                        </ul>
+                    </div>
+
+                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
+                        <Zap className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
+                        <h3 className="text-2xl font-display font-bold mb-4 text-surface">Integración con n8n</h3>
+                        <p className="text-surface/60 text-sm leading-relaxed font-light mb-6">
+                            Conectamos todas tus herramientas en un solo flujo automático: WhatsApp, Google Sheets, Gmail, CRM, formularios web y cualquier plataforma con API.
+                        </p>
+                        <ul className="space-y-2 text-sm text-surface/50">
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />WhatsApp → Google Sheets → Gmail automático</li>
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Sin copiar y pegar, sin intervención manual</li>
+                            <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary rounded-full" />Migración desde Zapier / Make disponible</li>
+                        </ul>
+                    </div>
+                </div>
+            </Section>
+
             {/* Web Development Plans */}
             <Section className="bg-background py-32 border-b border-white/5">
                 <div className="mb-20 text-center">
+                    <div className="inline-block border border-white/10 bg-white/5 backdrop-blur-sm px-4 py-1 rounded-full mb-6">
+                        <span className="text-xs font-mono text-white/50 uppercase tracking-widest">Desarrollo Web</span>
+                    </div>
                     <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">PLANES DE DESARROLLO</h2>
                     <p className="text-foreground/60 max-w-2xl mx-auto font-light">
                         Arquitectura digital escalable. Desde landing pages de alta conversión hasta ecosistemas web completos.
@@ -83,19 +145,11 @@ export default function TechPage() {
                                 className="w-full flex items-center justify-between text-xs font-bold text-white/50 uppercase tracking-wider hover:text-white transition-colors"
                             >
                                 <span>Estructura Ejemplo</span>
-                                <ChevronDown
-                                    className={`w-4 h-4 transition-transform duration-300 ${isLandingStructureOpen ? 'rotate-180' : ''}`}
-                                />
+                                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isLandingStructureOpen ? 'rotate-180' : ''}`} />
                             </button>
-
                             <AnimatePresence>
                                 {isLandingStructureOpen && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        className="overflow-hidden"
-                                    >
+                                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                                         <div className="space-y-2 font-mono text-xs text-primary/80 pt-4">
                                             <div>/ Hero (Intro)</div>
                                             <div>/ Servicios</div>
@@ -109,13 +163,8 @@ export default function TechPage() {
                         </div>
 
                         <div className="space-y-3 mt-auto">
-                            <Button variant="secondary" className="w-full">Iniciar Landing</Button>
-                            <a
-                                href="https://morphid.netlify.app/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block w-full text-center py-3 text-xs uppercase tracking-widest text-primary hover:text-white transition-colors border border-transparent hover:border-white/10 rounded-sm"
-                            >
+                            <Button variant="secondary" className="w-full" onClick={() => setIsOpen(true)}>Iniciar Landing</Button>
+                            <a href="https://morphid.netlify.app/" target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 text-xs uppercase tracking-widest text-primary hover:text-white transition-colors border border-transparent hover:border-white/10 rounded-sm">
                                 Ver Ejemplo
                             </a>
                         </div>
@@ -143,46 +192,22 @@ export default function TechPage() {
                                 className="w-full flex items-center justify-between text-xs font-bold text-white/50 uppercase tracking-wider hover:text-white transition-colors"
                             >
                                 <span>Estructura Ejemplo</span>
-                                <ChevronDown
-                                    className={`w-4 h-4 transition-transform duration-300 ${isStructureOpen ? 'rotate-180' : ''}`}
-                                />
+                                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isStructureOpen ? 'rotate-180' : ''}`} />
                             </button>
-
                             <AnimatePresence>
                                 {isStructureOpen && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        className="overflow-hidden"
-                                    >
+                                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                                         <div className="space-y-2 font-mono text-xs text-primary/80 pt-4">
                                             <div>/ Inicio</div>
                                             <div className="pl-4 text-white/40">├── Hero (Video/Img)</div>
                                             <div className="pl-4 text-white/40">├── Filosofía & Intro</div>
-                                            <div className="pl-4 text-white/40">├── Destacados</div>
                                             <div className="pl-4 text-white/40">└── Call to Action</div>
-
                                             <div>/ Servicios</div>
                                             <div className="pl-4 text-white/40">├── Catálogo General</div>
-                                            <div className="pl-4 text-white/40">├── Detalles del Servicio</div>
-                                            <div className="pl-4 text-white/40">├── Tabla Comparativa</div>
                                             <div className="pl-4 text-white/40">└── Preguntas Frecuentes</div>
-
                                             <div>/ Nosotros</div>
-                                            <div className="pl-4 text-white/40">├── Nuestra Historia</div>
-                                            <div className="pl-4 text-white/40">├── Equipo & Expertos</div>
-                                            <div className="pl-4 text-white/40">└── Alianzas</div>
-
                                             <div>/ Proyectos</div>
-                                            <div className="pl-4 text-white/40">├── Galería Interactiva</div>
-                                            <div className="pl-4 text-white/40">├── Casos de Éxito</div>
-                                            <div className="pl-4 text-white/40">└── Testimonios</div>
-
                                             <div>/ Contacto</div>
-                                            <div className="pl-4 text-white/40">├── Formulario Dinámico</div>
-                                            <div className="pl-4 text-white/40">├── Ubicación (Maps)</div>
-                                            <div className="pl-4 text-white/40">└── Redes Sociales</div>
                                         </div>
                                     </motion.div>
                                 )}
@@ -190,13 +215,8 @@ export default function TechPage() {
                         </div>
 
                         <div className="space-y-3 mt-auto">
-                            <Button glow className="w-full">Elegir Web Completa</Button>
-                            <a
-                                href="https://viveelitgrupoinmobiliario.com.mx/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block w-full text-center py-3 text-xs uppercase tracking-widest text-primary hover:text-white transition-colors border border-transparent hover:border-white/10 rounded-sm"
-                            >
+                            <Button glow className="w-full" onClick={() => setIsOpen(true)}>Elegir Web Completa</Button>
+                            <a href="https://viveelitgrupoinmobiliario.com.mx/" target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 text-xs uppercase tracking-widest text-primary hover:text-white transition-colors border border-transparent hover:border-white/10 rounded-sm">
                                 Ver Ejemplo
                             </a>
                         </div>
@@ -209,6 +229,7 @@ export default function TechPage() {
                         <p className="text-sm text-foreground/60 mb-8 h-12">Sistemas a medida con backend y bases de datos.</p>
 
                         <ul className="space-y-4 mb-8 text-sm text-foreground/80">
+                            <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-white rounded-full" />Tiendas Shopify</li>
                             <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-white rounded-full" />eCommerce / Apps</li>
                             <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-white rounded-full" />Backend & Auth</li>
                             <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-white rounded-full" />Panel Admin</li>
@@ -223,37 +244,64 @@ export default function TechPage() {
                             </div>
                         </div>
 
-                        <Button variant="ghost" className="w-full border border-white/20 hover:bg-white/5 mt-auto">Cotizar Proyecto</Button>
+                        <Button variant="ghost" className="w-full border border-white/20 hover:bg-white/5 mt-auto" onClick={() => setIsOpen(true)}>Cotizar Proyecto</Button>
                     </div>
                 </div>
             </Section>
 
-            {/* Services */}
-            <Section className="bg-foreground py-32">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
-                        <Code className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-3xl font-display font-bold mb-6 text-surface">Full Stack Web</h3>
-                        <p className="text-surface/70 text-sm leading-relaxed font-light">
-                            Desarrollo de aplicaciones web rápidas y optimizadas para motores de búsqueda.
-                        </p>
+            {/* Web Apps */}
+            <Section className="bg-surface/20 py-32 border-b border-white/5">
+                <div className="mb-16 text-center">
+                    <div className="inline-block border border-white/10 bg-white/5 backdrop-blur-sm px-4 py-1 rounded-full mb-6">
+                        <span className="text-xs font-mono text-white/50 uppercase tracking-widest">Web Apps & Plataformas</span>
                     </div>
-                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
-                        <Cpu className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-3xl font-display font-bold mb-6 text-surface">Agentes IA</h3>
-                        <p className="text-surface/70 text-sm leading-relaxed font-light">
-                            Integración de modelos de lenguaje para análisis de datos y atención al cliente automatizada.
-                        </p>
+                    <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">Desarrollo de Web Apps y Herramientas a Medida</h2>
+                    <p className="text-foreground/60 max-w-2xl mx-auto font-light">
+                        Apps internas para procesos repetitivos: generadores, compresores, colocadores de logo, tiendas Shopify y cualquier herramienta específica a tu operación.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="border border-white/5 bg-white/[0.02] p-8 hover:bg-white/[0.04] transition-colors rounded-sm group cursor-default">
+                        <ShoppingCart className="w-8 h-8 text-white/20 group-hover:text-primary transition-colors mb-6" />
+                        <h3 className="text-xl font-display text-white mb-2">Herramientas de Utilidad</h3>
+                        <p className="text-sm text-foreground/50">Apps personalizadas para tareas internas repetitivas: colocador de logos en productos, compresor de imágenes, generador de QR, generador de scripts. Se construyen una vez, se usan siempre.</p>
                     </div>
-                    <div className="p-10 bg-surface/5 border border-surface/10 hover:border-luxury/50 transition-all duration-500 rounded-lg group">
-                        <Workflow className="w-12 h-12 text-luxury mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-3xl font-display font-bold mb-6 text-surface">Automatización</h3>
-                        <p className="text-surface/70 text-sm leading-relaxed font-light">
-                            Automatización de procesos empresariales mediante scripts y flujos de trabajo personalizados.
-                        </p>
+                    <div className="border border-white/5 bg-white/[0.02] p-8 hover:bg-white/[0.04] transition-colors rounded-sm group cursor-default">
+                        <LayoutDashboard className="w-8 h-8 text-white/20 group-hover:text-primary transition-colors mb-6" />
+                        <h3 className="text-xl font-display text-white mb-2">Dashboards & Admin</h3>
+                        <p className="text-sm text-foreground/50">Paneles de control a medida: métricas de ventas, gestión de inventario, CRM interno o cualquier vista que necesites sobre tus datos.</p>
+                    </div>
+                    <div className="border border-white/5 bg-white/[0.02] p-8 hover:bg-white/[0.04] transition-colors rounded-sm group cursor-default">
+                        <Database className="w-8 h-8 text-white/20 group-hover:text-primary transition-colors mb-6" />
+                        <h3 className="text-xl font-display text-white mb-2">APIs & Backend</h3>
+                        <p className="text-sm text-foreground/50">Arquitecturas backend robustas con autenticación, base de datos y lógica de negocio a medida.</p>
                     </div>
                 </div>
             </Section>
+
+            {/* CTA */}
+            <Section className="text-center py-40 relative overflow-hidden bg-background">
+                <div className="absolute inset-0 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+                <div className="relative z-10">
+                    <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tighter text-white">
+                        ¿Listo para automatizar<br />tu negocio?
+                    </h2>
+                    <p className="text-xl text-foreground/60 mb-12 max-w-xl mx-auto font-light">
+                        Agenda una consulta gratuita y analizamos juntos cómo optimizar tu operación con tecnología.
+                    </p>
+                    <Button size="lg" glow onClick={() => setIsOpen(true)}>Agendar Consulta</Button>
+                </div>
+            </Section>
+
+            {isMounted && (
+                <PopupModal
+                    url="https://calendly.com/thrtn"
+                    onModalClose={() => setIsOpen(false)}
+                    open={isOpen}
+                    rootElement={document.getElementById("root") || document.body}
+                />
+            )}
 
             <Footer />
         </main>

@@ -10,9 +10,8 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
     { name: "Inicio", href: "/" },
-    { name: "Real Estate", href: "/real-estate" },
-    { name: "Estudio", href: "/studio" },
-    { name: "Tech & IA", href: "/tech" },
+    { name: "Automatización & IA", href: "/tech" },
+    { name: "Studio Creativo", href: "/studio" },
 ];
 
 export const Navbar = () => {

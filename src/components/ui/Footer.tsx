@@ -28,9 +28,8 @@ export const Footer = () => {
                         <h4 className="text-xs uppercase tracking-widest text-white/40 mb-6">MAPA DEL SITIO</h4>
                         <ul className="space-y-4 text-sm text-foreground/80">
                             <li><Link href="/" className="hover:text-primary transition-colors">Inicio</Link></li>
-                            <li><Link href="/real-estate" className="hover:text-primary transition-colors">Real Estate</Link></li>
-                            <li><Link href="/studio" className="hover:text-primary transition-colors">Estudio</Link></li>
-                            <li><Link href="/tech" className="hover:text-primary transition-colors">Tech & IA</Link></li>
+                            <li><Link href="/tech" className="hover:text-primary transition-colors">Automatización & IA</Link></li>
+                            <li><Link href="/studio" className="hover:text-primary transition-colors">Studio Creativo</Link></li>
                         </ul>
                     </div>
 
