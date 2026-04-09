@@ -48,6 +48,23 @@ interface PageConfig {
   title: string;
 }
 
+// Helper to render URLs as clickable links
+const renderTextWithLinks = (text: string) => {
+  if (!text) return null;
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlRegex);
+  return parts.map((part, i) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-white transition-colors underline decoration-primary/30">
+          {part}
+        </a>
+      );
+    }
+    return <span key={i}>{part}</span>;
+  });
+};
+
 export default function BudgetCalculator() {
   const [clientInfo, setClientInfo] = useState<ClientInfo>({
     name: "",
@@ -305,6 +322,33 @@ export default function BudgetCalculator() {
           const imgHeight = (img.height * imgWidth) / img.width;
 
           pdf.addImage(dataUrl, "PNG", 0, 0, imgWidth, imgHeight);
+
+          // Add clickable links over the image by traversing the DOM
+          const links = element.querySelectorAll("a[href]");
+          if (links.length > 0) {
+            const elementRect = element.getBoundingClientRect();
+            links.forEach((link) => {
+              const rect = link.getBoundingClientRect();
+              
+              // Calculate relative percentages to ignore any CSS transforms/scales
+              const xPercent = (rect.left - elementRect.left) / elementRect.width;
+              const yPercent = (rect.top - elementRect.top) / elementRect.height;
+              const wPercent = rect.width / elementRect.width;
+              const hPercent = rect.height / elementRect.height;
+              
+              // Map back to absolute mm dimensions on the PDF document
+              const xPos = xPercent * imgWidth;
+              const yPos = yPercent * imgHeight;
+              const wMm = wPercent * imgWidth;
+              const hMm = hPercent * imgHeight;
+              
+              const href = link.getAttribute("href");
+              if (href) {
+                // Creates an invisible clickable area at the mapped coords
+                pdf.link(xPos, yPos, wMm, hMm, { url: href });
+              }
+            });
+          }
         }
       }
 
@@ -808,9 +852,9 @@ export default function BudgetCalculator() {
                                 {page.items.map((item, idx) => (
                                   <div key={idx} className="grid gap-4 text-base py-3 border-b border-white/5 items-start" style={{ gridTemplateColumns: previewCols }}>
                                     <div className="space-y-1">
-                                      <div className="text-white/90 font-medium whitespace-pre-wrap">{item.description}</div>
+                                      <div className="text-white/90 font-medium whitespace-pre-wrap">{renderTextWithLinks(item.description)}</div>
                                       {item.details && (
-                                        <div className="text-sm text-white/50 whitespace-pre-wrap">{item.details}</div>
+                                        <div className="text-sm text-white/50 whitespace-pre-wrap">{renderTextWithLinks(item.details)}</div>
                                       )}
                                     </div>
                                     {page.settings.showItemType && <div className="text-center text-white/60">{item.type || "-"}</div>}
