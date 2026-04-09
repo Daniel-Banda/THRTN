@@ -9,6 +9,7 @@ interface BudgetItem {
   id: string;
   description: string;
   details?: string;
+  type?: string;
   quantity: number;
   price: number;
 }
@@ -29,6 +30,9 @@ interface PageSettings {
   showGrandTotal: boolean;
   showFooter: boolean;
   showIVA: boolean;
+  showItemType: boolean;
+  showItemQuantity: boolean;
+  showItemPrice: boolean;
 }
 
 interface PageConfig {
@@ -61,13 +65,16 @@ export default function BudgetCalculator() {
     showGrandTotal: false,
     showFooter: true,
     showIVA: false,
+    showItemType: true,
+    showItemQuantity: true,
+    showItemPrice: true,
   };
 
   const [pages, setPages] = useState<PageConfig[]>([
     {
       id: "page-1",
       items: [
-        { id: "1", description: "Servicio de Diseño Web", details: "Incluye diseño UX/UI, desarrollo frontend y backend básico.", quantity: 1, price: 5000 },
+        { id: "1", description: "Servicio de Diseño Web", details: "Incluye diseño UX/UI, desarrollo frontend y backend básico.", type: "Servicio", quantity: 1, price: 5000 },
       ],
       settings: { ...defaultSettings, showGrandTotal: true, showPageSubtotal: true },
       title: "PRESUPUESTO",
@@ -127,6 +134,7 @@ export default function BudgetCalculator() {
                 id: crypto.randomUUID(),
                 description: "",
                 details: "",
+                type: "",
                 quantity: 1,
                 price: 0,
               },
@@ -515,11 +523,14 @@ export default function BudgetCalculator() {
                       </div>
 
                       {/* Toggles */}
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mb-2">
                         {[
                           { key: 'showBranding', label: 'Branding' },
                           { key: 'showClientInfo', label: 'Info Cliente' },
                           { key: 'showTable', label: 'Tabla Items' },
+                          { key: 'showItemType', label: 'Col Tipo' },
+                          { key: 'showItemQuantity', label: 'Col Cant' },
+                          { key: 'showItemPrice', label: 'Col Precio' },
                           { key: 'showPageSubtotal', label: 'Subtotal Pág' },
                           { key: 'showGlobalSubtotal', label: 'Subtotal Global' },
                           { key: 'showIVA', label: '+ IVA' },
@@ -553,8 +564,15 @@ export default function BudgetCalculator() {
                           </div>
 
                           <div className="space-y-2">
-                            {page.items.map((item) => (
-                              <div key={item.id} className="grid grid-cols-[1fr_50px_70px_auto] gap-2 items-start bg-white/5 p-2 rounded border border-white/5 text-xs">
+                            {page.items.map((item) => {
+                              let editorCols = "1fr ";
+                              if (page.settings.showItemType) editorCols += "70px ";
+                              if (page.settings.showItemQuantity) editorCols += "50px ";
+                              if (page.settings.showItemPrice) editorCols += "70px ";
+                              editorCols += "auto";
+                              
+                              return (
+                              <div key={item.id} className="grid gap-2 items-start bg-white/5 p-2 rounded border border-white/5 text-xs" style={{ gridTemplateColumns: editorCols }}>
                                 <div className="space-y-1">
                                   <textarea
                                     value={item.description}
@@ -579,28 +597,41 @@ export default function BudgetCalculator() {
                                     rows={1}
                                   />
                                 </div>
-                                <input
-                                  type="number"
-                                  value={item.quantity}
-                                  onChange={(e) => updateItem(page.id, item.id, "quantity", parseInt(e.target.value) || 0)}
-                                  className="bg-transparent text-center border-b border-white/10 focus:border-primary outline-none"
-                                  placeholder="#"
-                                />
-                                <input
-                                  type="number"
-                                  value={item.price}
-                                  onChange={(e) => updateItem(page.id, item.id, "price", parseFloat(e.target.value) || 0)}
-                                  className="bg-transparent text-right border-b border-white/10 focus:border-primary outline-none"
-                                  placeholder="$"
-                                />
+                                {page.settings.showItemType && (
+                                  <input
+                                    type="text"
+                                    value={item.type || ""}
+                                    onChange={(e) => updateItem(page.id, item.id, "type", e.target.value)}
+                                    className="bg-transparent text-center border-b border-white/10 focus:border-primary outline-none"
+                                    placeholder="Tipo"
+                                  />
+                                )}
+                                {page.settings.showItemQuantity && (
+                                  <input
+                                    type="number"
+                                    value={item.quantity}
+                                    onChange={(e) => updateItem(page.id, item.id, "quantity", parseInt(e.target.value) || 0)}
+                                    className="bg-transparent text-center border-b border-white/10 focus:border-primary outline-none"
+                                    placeholder="#"
+                                  />
+                                )}
+                                {page.settings.showItemPrice && (
+                                  <input
+                                    type="number"
+                                    value={item.price}
+                                    onChange={(e) => updateItem(page.id, item.id, "price", parseFloat(e.target.value) || 0)}
+                                    className="bg-transparent text-right border-b border-white/10 focus:border-primary outline-none"
+                                    placeholder="$"
+                                  />
+                                )}
                                 <button
                                   onClick={() => removeItemFromPage(page.id, item.id)}
-                                  className="text-white/20 hover:text-red-500"
+                                  className="text-white/20 hover:text-red-500 flex items-center justify-center pt-1"
                                 >
                                   <Trash2 size={12} />
                                 </button>
                               </div>
-                            ))}
+                            )})}
                             {page.items.length === 0 && (
                               <p className="text-center text-white/20 text-xs py-2 italic">Sin conceptos</p>
                             )}
@@ -674,27 +705,41 @@ export default function BudgetCalculator() {
                   <div className="flex-grow flex flex-col">
                     {page.settings.showTable && (
                       <div className="w-full mb-auto">
-                        <div className="grid grid-cols-[1fr_80px_120px_120px] gap-4 border-b border-white/20 pb-2 mb-2 text-xs uppercase tracking-widest text-white/80">
-                          <div>Descripción</div>
-                          <div className="text-center">Cant.</div>
-                          <div className="text-right">Precio Unit.</div>
-                          <div className="text-right">Total</div>
-                        </div>
-                        <div className="space-y-4">
-                          {page.items.map((item, idx) => (
-                            <div key={idx} className="grid grid-cols-[1fr_80px_120px_120px] gap-4 text-base py-3 border-b border-white/5 items-start">
-                              <div className="space-y-1">
-                                <div className="text-white/90 font-medium whitespace-pre-wrap">{item.description}</div>
-                                {item.details && (
-                                  <div className="text-sm text-white/50 whitespace-pre-wrap">{item.details}</div>
-                                )}
+                        {(() => {
+                          let previewCols = "1fr ";
+                          if (page.settings.showItemType) previewCols += "80px ";
+                          if (page.settings.showItemQuantity) previewCols += "80px ";
+                          if (page.settings.showItemPrice) previewCols += "120px ";
+                          previewCols += "120px";
+                          
+                          return (
+                            <>
+                              <div className="grid gap-4 border-b border-white/20 pb-2 mb-2 text-xs uppercase tracking-widest text-white/80" style={{ gridTemplateColumns: previewCols }}>
+                                <div>Descripción</div>
+                                {page.settings.showItemType && <div className="text-center">Tipo</div>}
+                                {page.settings.showItemQuantity && <div className="text-center">Cant.</div>}
+                                {page.settings.showItemPrice && <div className="text-right">Precio Unit.</div>}
+                                <div className="text-right">Total</div>
                               </div>
-                              <div className="text-center text-white/60">{item.quantity}</div>
-                              <div className="text-right text-white/60">{formatCurrency(item.price)}</div>
-                              <div className="text-right font-medium text-white">{formatCurrency(item.quantity * item.price)}</div>
-                            </div>
-                          ))}
-                        </div>
+                              <div className="space-y-4">
+                                {page.items.map((item, idx) => (
+                                  <div key={idx} className="grid gap-4 text-base py-3 border-b border-white/5 items-start" style={{ gridTemplateColumns: previewCols }}>
+                                    <div className="space-y-1">
+                                      <div className="text-white/90 font-medium whitespace-pre-wrap">{item.description}</div>
+                                      {item.details && (
+                                        <div className="text-sm text-white/50 whitespace-pre-wrap">{item.details}</div>
+                                      )}
+                                    </div>
+                                    {page.settings.showItemType && <div className="text-center text-white/60">{item.type || "-"}</div>}
+                                    {page.settings.showItemQuantity && <div className="text-center text-white/60">{item.quantity}</div>}
+                                    {page.settings.showItemPrice && <div className="text-right text-white/60">{formatCurrency(item.price)}</div>}
+                                    <div className="text-right font-medium text-white">{formatCurrency(item.quantity * item.price)}</div>
+                                  </div>
+                                ))}
+                              </div>
+                            </>
+                          );
+                        })()}
                       </div>
                     )}
 
