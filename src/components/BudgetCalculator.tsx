@@ -28,6 +28,7 @@ interface PageSettings {
   showGlobalSubtotal: boolean;
   showGrandTotal: boolean;
   showFooter: boolean;
+  showIVA: boolean;
 }
 
 interface PageConfig {
@@ -59,6 +60,7 @@ export default function BudgetCalculator() {
     showGlobalSubtotal: false,
     showGrandTotal: false,
     showFooter: true,
+    showIVA: false,
   };
 
   const [pages, setPages] = useState<PageConfig[]>([
@@ -520,6 +522,7 @@ export default function BudgetCalculator() {
                           { key: 'showTable', label: 'Tabla Items' },
                           { key: 'showPageSubtotal', label: 'Subtotal Pág' },
                           { key: 'showGlobalSubtotal', label: 'Subtotal Global' },
+                          { key: 'showIVA', label: '+ IVA' },
                           { key: 'showPageTotal', label: 'Total Pág' },
                           { key: 'showGrandTotal', label: 'Total Global' },
                           { key: 'showFooter', label: 'Footer' },
@@ -702,8 +705,16 @@ export default function BudgetCalculator() {
                         {/* Page Subtotal */}
                         {page.settings.showPageSubtotal && (
                           <div className="flex justify-between text-white/60 text-base border-t border-white/10 pt-2">
-                            <span>Subtotal Página</span>
+                            <span>Subtotal</span>
                             <span>{formatCurrency(calculatePageTotal(page))}</span>
+                          </div>
+                        )}
+
+                        {/* Page IVA */}
+                        {page.settings.showIVA && (page.settings.showPageSubtotal || page.settings.showPageTotal) && !page.settings.showGrandTotal && !page.settings.showGlobalSubtotal && (
+                          <div className="flex justify-between text-white/60 text-base border-t border-white/10 pt-2 text-primary/80">
+                            <span>+ IVA (16%)</span>
+                            <span>{formatCurrency(calculatePageTotal(page) * 0.16)}</span>
                           </div>
                         )}
 
@@ -715,19 +726,27 @@ export default function BudgetCalculator() {
                           </div>
                         )}
 
+                        {/* Global IVA */}
+                        {page.settings.showIVA && (page.settings.showGlobalSubtotal || page.settings.showGrandTotal) && (
+                          <div className="flex justify-between text-white/60 text-base border-t border-white/10 pt-2 text-primary/80">
+                            <span>+ IVA (16%)</span>
+                            <span>{formatCurrency(calculateGrandTotal() * 0.16)}</span>
+                          </div>
+                        )}
+
                         {/* Page Total */}
                         {page.settings.showPageTotal && (
                           <div className="flex justify-between items-center pt-2 text-white border-t border-white/10">
                             <span className="font-medium text-lg">Total Página</span>
-                            <span className="font-medium text-lg">{formatCurrency(calculatePageTotal(page))}</span>
+                            <span className="font-medium text-lg">{formatCurrency(calculatePageTotal(page) * (page.settings.showIVA && !page.settings.showGlobalSubtotal && !page.settings.showGrandTotal ? 1.16 : 1))}</span>
                           </div>
                         )}
 
                         {/* Grand Total */}
                         {page.settings.showGrandTotal && (
                           <div className="flex justify-between items-center pt-4 border-t border-primary/30 text-primary mt-2">
-                            <span className="font-display text-xl">Total Final</span>
-                            <span className="text-3xl font-medium">{formatCurrency(calculateGrandTotal())}</span>
+                            <span className="font-display text-xl">Total</span>
+                            <span className="text-3xl font-medium">{formatCurrency(calculateGrandTotal() * (page.settings.showIVA ? 1.16 : 1))}</span>
                           </div>
                         )}
                       </div>

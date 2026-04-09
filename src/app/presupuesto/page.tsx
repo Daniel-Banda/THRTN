@@ -1,11 +1,8 @@
-
 import BudgetCalculator from "@/components/BudgetCalculator";
-import Scene3DClient from "@/components/Scene3DClient";
 
 export default function BudgetPage() {
     return (
-        <main className="min-h-screen pt-32 pb-20 px-4 md:px-8 relative overflow-hidden">
-            <Scene3DClient />
+        <main className="min-h-screen pt-32 pb-20 px-4 md:px-8 relative overflow-hidden bg-[#0a0a0a]">
             <div className="relative z-10">
                 <div className="max-w-4xl mx-auto mb-12 text-center space-y-4">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-primary uppercase tracking-wide">
