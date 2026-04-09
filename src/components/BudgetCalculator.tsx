@@ -19,6 +19,7 @@ interface ClientInfo {
   date: string;
   project: string;
   footerText?: string;
+  documentType?: string;
 }
 
 interface PageSettings {
@@ -49,6 +50,7 @@ export default function BudgetCalculator() {
     date: new Date().toISOString().split("T")[0],
     project: "",
     footerText: "Este presupuesto tiene validez informativa. Gracias por su confianza.",
+    documentType: "PRESUPUESTO",
   });
   const [validity, setValidity] = useState("15");
   const [isGenerating, setIsGenerating] = useState(false);
@@ -95,7 +97,7 @@ export default function BudgetCalculator() {
         id: newPageId,
         items: [],
         settings: { ...defaultSettings, showBranding: false, showClientInfo: false, showTable: true },
-        title: "PRESUPUESTO",
+        title: clientInfo.documentType || "PRESUPUESTO",
       },
     ]);
     setActivePageId(newPageId);
@@ -425,6 +427,20 @@ export default function BudgetCalculator() {
           <div className="bg-surface border border-white/5 p-6 rounded-xl space-y-6">
             <h3 className="text-sm uppercase tracking-widest text-primary/80 font-medium">Información General</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs text-white/40 mb-1">Tipo de Documento</label>
+                <input
+                  type="text"
+                  value={clientInfo.documentType || ""}
+                  onChange={(e) => {
+                    const newType = e.target.value.toUpperCase();
+                    setClientInfo({ ...clientInfo, documentType: newType });
+                    setPages(pages.map(p => ({ ...p, title: newType })));
+                  }}
+                  className="w-full bg-white/5 border border-white/10 rounded p-2 text-foreground focus:border-primary focus:outline-none uppercase font-bold"
+                  placeholder="PRESUPUESTO"
+                />
+              </div>
               <div>
                 <label className="block text-xs text-white/40 mb-1">Cliente</label>
                 <input
