@@ -20,6 +20,10 @@ interface ClientInfo {
   project: string;
   footerText?: string;
   documentType?: string;
+  brandingTagline?: string;
+  brandingEmail?: string;
+  brandingPhone?: string;
+  brandingWebsite?: string;
 }
 
 interface PageSettings {
@@ -51,6 +55,10 @@ export default function BudgetCalculator() {
     project: "",
     footerText: "Este presupuesto tiene validez informativa. Gracias por su confianza.",
     documentType: "PRESUPUESTO",
+    brandingTagline: "THRTN | Ecosistemas Digitales Automatizados",
+    brandingEmail: "contacto@thrtn.co",
+    brandingPhone: "+52 3123743960",
+    brandingWebsite: "www.thrtn.co",
   });
   const [validity, setValidity] = useState("15");
   const [isGenerating, setIsGenerating] = useState(false);
@@ -423,6 +431,53 @@ export default function BudgetCalculator() {
         {/* === EDITOR PANEL (LEFT) === */}
         <div className="w-full xl:w-1/2 space-y-8">
 
+          {/* BRANDING SETTINGS */}
+          <div className="bg-surface border border-white/5 p-6 rounded-xl space-y-6">
+            <h3 className="text-sm uppercase tracking-widest text-primary/80 font-medium">Branding (Cabecera)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="md:col-span-3">
+                <label className="block text-xs text-white/40 mb-1">Eslogan</label>
+                <input
+                  type="text"
+                  value={clientInfo.brandingTagline !== undefined ? clientInfo.brandingTagline : "THRTN | Ecosistemas Digitales Automatizados"}
+                  onChange={(e) => setClientInfo({ ...clientInfo, brandingTagline: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded p-2 text-foreground focus:border-primary focus:outline-none"
+                  placeholder="Eslogan publicitario"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-white/40 mb-1">Email</label>
+                <input
+                  type="text"
+                  value={clientInfo.brandingEmail !== undefined ? clientInfo.brandingEmail : "contacto@thrtn.co"}
+                  onChange={(e) => setClientInfo({ ...clientInfo, brandingEmail: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded p-2 text-foreground focus:border-primary focus:outline-none"
+                  placeholder="Email"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-white/40 mb-1">Teléfono</label>
+                <input
+                  type="text"
+                  value={clientInfo.brandingPhone !== undefined ? clientInfo.brandingPhone : "+52 3123743960"}
+                  onChange={(e) => setClientInfo({ ...clientInfo, brandingPhone: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded p-2 text-foreground focus:border-primary focus:outline-none"
+                  placeholder="Teléfono"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-white/40 mb-1">Sitio Web</label>
+                <input
+                  type="text"
+                  value={clientInfo.brandingWebsite !== undefined ? clientInfo.brandingWebsite : "www.thrtn.co"}
+                  onChange={(e) => setClientInfo({ ...clientInfo, brandingWebsite: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded p-2 text-foreground focus:border-primary focus:outline-none"
+                  placeholder="Sitio Web"
+                />
+              </div>
+            </div>
+          </div>
+
           {/* GLOBAL SETTINGS */}
           <div className="bg-surface border border-white/5 p-6 rounded-xl space-y-6">
             <h3 className="text-sm uppercase tracking-widest text-primary/80 font-medium">Información General</h3>
@@ -702,12 +757,12 @@ export default function BudgetCalculator() {
                           >
                             {page.title || "PRESUPUESTO"}
                           </h1>
-                          <p className="text-white/60 text-sm">THRTN | Ecosistemas Digitales Automatizados</p>
+                          <p className="text-white/60 text-sm">{clientInfo.brandingTagline !== undefined ? clientInfo.brandingTagline : "THRTN | Ecosistemas Digitales Automatizados"}</p>
                         </div>
                         <div className="text-right text-sm text-white/40 space-y-1">
-                          <p>contacto@thrtn.co</p>
-                          <p>+52 3123743960</p>
-                          <p>www.thrtn.co</p>
+                          <p>{clientInfo.brandingEmail !== undefined ? clientInfo.brandingEmail : "contacto@thrtn.co"}</p>
+                          <p>{clientInfo.brandingPhone !== undefined ? clientInfo.brandingPhone : "+52 3123743960"}</p>
+                          <p>{clientInfo.brandingWebsite !== undefined ? clientInfo.brandingWebsite : "www.thrtn.co"}</p>
                         </div>
                       </div>
                     )}
