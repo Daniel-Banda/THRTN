@@ -18,6 +18,7 @@ interface ClientInfo {
   name: string;
   date: string;
   project: string;
+  footerText?: string;
 }
 
 interface PageSettings {
@@ -47,6 +48,7 @@ export default function BudgetCalculator() {
     name: "",
     date: new Date().toISOString().split("T")[0],
     project: "",
+    footerText: "Este presupuesto tiene validez informativa. Gracias por su confianza.",
   });
   const [validity, setValidity] = useState("15");
   const [isGenerating, setIsGenerating] = useState(false);
@@ -463,6 +465,16 @@ export default function BudgetCalculator() {
                 />
               </div>
             </div>
+            <div className="mt-4">
+              <label className="block text-xs text-white/40 mb-1">Pie de Página (Global)</label>
+              <input
+                type="text"
+                value={clientInfo.footerText !== undefined ? clientInfo.footerText : "Este presupuesto tiene validez informativa. Gracias por su confianza."}
+                onChange={(e) => setClientInfo({ ...clientInfo, footerText: e.target.value })}
+                className="w-full bg-white/5 border border-white/10 rounded p-2 text-foreground focus:border-primary focus:outline-none"
+                placeholder="Texto del pie de página"
+              />
+            </div>
           </div>
 
           {/* PAGE MANAGER */}
@@ -674,7 +686,7 @@ export default function BudgetCalculator() {
                           >
                             {page.title || "PRESUPUESTO"}
                           </h1>
-                          <p className="text-white/60 text-sm">THRTN | Ecosistemas Digitales Inteligentes</p>
+                          <p className="text-white/60 text-sm">THRTN | Ecosistemas Digitales Automatizados</p>
                         </div>
                         <div className="text-right text-sm text-white/40 space-y-1">
                           <p>contacto@thrtn.co</p>
@@ -801,7 +813,7 @@ export default function BudgetCalculator() {
                   {/* App Footer */}
                   {page.settings.showFooter && (
                     <div className="mt-8 pt-8 border-t border-white/5 text-center text-xs text-white/30 h-[40px] shrink-0">
-                      <p>Este presupuesto tiene validez informativa. Gracias por su confianza.</p>
+                      <p>{clientInfo.footerText !== undefined ? clientInfo.footerText : "Este presupuesto tiene validez informativa. Gracias por su confianza."}</p>
                     </div>
                   )}
                 </div>
