@@ -15,8 +15,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "THRTN | Automatización, Web y Studio Creativo — Colima",
-  description: "Automatización de procesos con IA, desarrollo web, fotografía, video y campañas Meta Ads. Agencia digital en Colima, México.",
+  title: "THRTN Studio | Fotografía y Video para Inmobiliarias y Hoteles — Colima",
+  description: "Fotografía HDR, video cinemático 4K, recorridos virtuales 360° y cobertura aérea con drone para inmobiliarias, hoteles y experiencias de lujo en México.",
+  openGraph: {
+    title: "THRTN Studio | Contenido Visual Premium para Real Estate y Hoteles",
+    description: "Fotografía, video cinemático, drone y tours 360° para inmobiliarias, hoteles y experiencias de lujo.",
+    locale: "es_MX",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

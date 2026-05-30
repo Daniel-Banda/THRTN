@@ -34,7 +34,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     "relative inline-flex items-center justify-center rounded-sm font-semibold transition-all duration-300 overflow-hidden",
                     variants[variant],
                     sizes[size],
-                    glow && "shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)] hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.8)]",
+                    glow && "shadow-[0_0_20px_-5px_rgba(212,176,106,0.4)] hover:shadow-[0_0_30px_-5px_rgba(212,176,106,0.65)]",
                     className
                 )}
                 {...props}

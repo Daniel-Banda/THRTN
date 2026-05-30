@@ -18,7 +18,7 @@ export const Footer = () => {
                             />
                         </Link>
                         <p className="text-foreground/50 max-w-sm font-light leading-relaxed">
-                            Redefiniendo el estándar digital: procesos que aceleran tu crecimiento.
+                            Contenido visual de élite para propiedades exclusivas, hoteles y experiencias de lujo.
                         </p>
 
                     </div>
@@ -28,8 +28,10 @@ export const Footer = () => {
                         <h4 className="text-xs uppercase tracking-widest text-white/40 mb-6">MAPA DEL SITIO</h4>
                         <ul className="space-y-4 text-sm text-foreground/80">
                             <li><Link href="/" className="hover:text-primary transition-colors">Inicio</Link></li>
-                            <li><Link href="/tech" className="hover:text-primary transition-colors">Automatización & IA</Link></li>
-                            <li><Link href="/studio" className="hover:text-primary transition-colors">Studio Creativo</Link></li>
+                            <li><Link href="/real-estate" className="hover:text-primary transition-colors">Real Estate</Link></li>
+                            <li><Link href="/hoteles" className="hover:text-primary transition-colors">Hoteles</Link></li>
+                            <li><Link href="/portafolio" className="hover:text-primary transition-colors">Portafolio</Link></li>
+                            <li><Link href="/negocios" className="hover:text-primary transition-colors text-foreground/40 text-xs">Para tu negocio</Link></li>
                         </ul>
                     </div>
 
