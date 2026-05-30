@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
 
 interface ScrollPhoto {
     src: string;
@@ -12,78 +11,55 @@ interface ScrollPhoto {
 interface HorizontalScrollProps {
     photos: ScrollPhoto[];
     label?: string;
+    speed?: number;
 }
 
-export const HorizontalScroll = ({ photos, label }: HorizontalScrollProps) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"],
-    });
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-62%"]);
+export const HorizontalScroll = ({ photos, label, speed = 40 }: HorizontalScrollProps) => {
+    const [paused, setPaused] = useState(false);
+    const doubled = [...photos, ...photos];
 
     return (
-        <>
-            {/* Desktop: scroll-driven horizontal pan */}
+        <section className="py-16 bg-background overflow-hidden">
+            {label && (
+                <div className="px-8 mb-8">
+                    <span className="text-xs font-mono text-primary uppercase tracking-widest">{label}</span>
+                </div>
+            )}
+
             <div
-                ref={containerRef}
-                className="hidden md:block relative"
-                style={{ height: `${photos.length * 45}vh` }}
+                className="relative w-full"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
             >
-                <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-                    {label && (
-                        <div className="absolute top-8 left-8 z-10">
-                            <span className="text-xs font-mono text-primary uppercase tracking-widest">{label}</span>
+                {/* Fade edges */}
+                <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+                <div
+                    className="flex gap-4 w-max"
+                    style={{
+                        animation: `marquee ${speed}s linear infinite`,
+                        animationPlayState: paused ? "paused" : "running",
+                    }}
+                >
+                    {doubled.map((photo, idx) => (
+                        <div
+                            key={idx}
+                            className="relative shrink-0 overflow-hidden rounded-sm"
+                            style={{ width: "380px", height: "520px" }}
+                        >
+                            <Image
+                                src={photo.src}
+                                alt={photo.alt}
+                                fill
+                                className="object-cover transition-transform duration-700 hover:scale-105"
+                                sizes="380px"
+                                loading={idx < 4 ? "eager" : "lazy"}
+                            />
                         </div>
-                    )}
-                    <motion.div
-                        style={{ x }}
-                        className="flex gap-4 pl-16 will-change-transform"
-                    >
-                        {photos.map((photo, idx) => (
-                            <div
-                                key={idx}
-                                className="relative shrink-0 overflow-hidden rounded-sm"
-                                style={{ width: "420px", height: "560px" }}
-                            >
-                                <Image
-                                    src={photo.src}
-                                    alt={photo.alt}
-                                    fill
-                                    className="object-cover"
-                                    sizes="420px"
-                                    priority={idx < 2}
-                                />
-                            </div>
-                        ))}
-                    </motion.div>
+                    ))}
                 </div>
             </div>
-
-            {/* Mobile: horizontal snap scroll */}
-            <div className="md:hidden overflow-x-auto flex gap-3 px-6 pb-4" style={{ scrollSnapType: "x mandatory" }}>
-                {label && (
-                    <div className="shrink-0 flex items-center">
-                        <span className="text-xs font-mono text-primary uppercase tracking-widest writing-mode-vertical">{label}</span>
-                    </div>
-                )}
-                {photos.map((photo, idx) => (
-                    <div
-                        key={idx}
-                        className="relative shrink-0 overflow-hidden rounded-sm"
-                        style={{ width: "280px", height: "380px", scrollSnapAlign: "start" }}
-                    >
-                        <Image
-                            src={photo.src}
-                            alt={photo.alt}
-                            fill
-                            className="object-cover"
-                            sizes="280px"
-                            loading={idx < 2 ? "eager" : "lazy"}
-                        />
-                    </div>
-                ))}
-            </div>
-        </>
+        </section>
     );
 };
