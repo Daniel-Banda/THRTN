@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Gigantic';
+  src: url('/fonts/Gigantic.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bebas Kai';
+  src: url('/fonts/BebasKai.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bogart';
+  src: url('/fonts/Bogart.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --bg-dark: #070402;
+  --yellow-accent: #F6D641;
+  --orange-accent: #F6A132;
+  --cream-light: #E1DACB;
+
+  --font-inter: 'Inter', sans-serif;
+  --font-gigantic: 'Gigantic', 'Bebas Kai', sans-serif;
+  --font-bebas: 'Bebas Kai', sans-serif;
+  --font-bogart: 'Bogart', serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--cream-light);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ocultar scrollbar manteniendo scroll funcional */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Estilos de Tipografías Especiales */
+.font-gigantic { font-family: var(--font-gigantic); }
+.font-bebas { font-family: var(--font-bebas); }
+.font-bogart { font-family: var(--font-bogart); }
+.font-inter { font-family: var(--font-inter); }
+
+/* Grain Effect tipo Película de Cine */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
