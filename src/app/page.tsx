@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import HeroReel from '@/components/HeroReel';
 import ProjectGrid from '@/components/ProjectGrid';
 import AboutSection from '@/components/AboutSection';
+import Footer from '@/components/Footer'; // Ajusta la ruta si tu Footer está en otra ubicación
 
 export default function Home() {
   return (
@@ -11,15 +12,7 @@ export default function Home() {
       <AboutSection />
       <ProjectGrid />
       
-      <footer className="px-8 md:px-14 py-12 border-t border-[#E6E1D7]/10 flex justify-between items-center text-xs font-inter text-[#E6E1D7]/60">
-        <p>© 2026 THRTN STUDIO</p>
-        <a 
-          href="mailto:contact@thrtn.studio" 
-          className="hover:text-[#E6E1D7] transition-colors"
-        >
-          contact@thrtn.studio
-        </a>
-      </footer>
+      <Footer />
     </main>
   );
 }
