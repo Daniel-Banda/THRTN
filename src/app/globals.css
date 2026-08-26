@@ -9,8 +9,12 @@
 }
 
 :root {
-  --bg-dark: #070402;
-  --cream-light: #E6E1D7;
+  /* PALETA PANTONE */
+  --bg-dark: #070402;       /* Anthracite (Fondo principal) */
+  --white-sand: #E7E3DD;    /* White Sand (Texto e highlights) */
+  --cognac: #8A4E2A;        /* Cognac (Detalles / Acentos principales) */
+  --blue-coral: #083B3A;    /* Blue Coral (Tarjetas / Acentos secundarios) */
+  --rouge-noir: #5B0D18;    /* Rouge Noir (Hovers / Fondos dramáticos) */
 
   --font-inter: 'Inter', sans-serif;
   --font-metropolis: 'Metropolis', sans-serif;
@@ -19,7 +23,7 @@
 
 body {
   background-color: var(--bg-dark);
-  color: var(--cream-light);
+  color: var(--white-sand);
   font-family: var(--font-inter);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
