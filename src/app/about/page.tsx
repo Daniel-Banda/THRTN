@@ -26,10 +26,11 @@ export default function AboutPage() {
             ABOUT THRTN
           </span>
           <h1 className="font-metropolis text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight uppercase leading-[1.05] text-[var(--white-sand)] max-w-4xl mb-8">
-            WE CRAFT VISUAL ATMOSPHERES THAT ENDURE.
+            WE CREATE WHAT WORDS CANNOT.
+
           </h1>
           <p className="font-inter text-base md:text-xl text-[var(--white-sand)]/70 font-light max-w-2xl leading-relaxed">
-            Founded in Mexico and operating globally, THRTN is an independent creative studio bridging high-concept cinematography with modern visual language.
+            Founded in Mexico and working worldwide, THRTN is an independent creative film studio built around emotion, atmosphere, and a distinct visual point of view.
           </p>
         </section>
 
@@ -40,13 +41,22 @@ export default function AboutPage() {
               OUR ORIGIN
             </span>
             <h2 className="font-metropolis text-2xl md:text-3xl font-bold uppercase tracking-wide leading-snug">
-              BORN FROM A PASSION FOR MOTION AND FRAME ACCURACY.
+              BORN FROM A NEED TO CREATE.
             </h2>
             <p className="font-inter text-sm md:text-base text-[var(--white-sand)]/75 font-light leading-relaxed">
-              THRTN originated in 2018 as a boutique production house focused on pure visual storytelling. What began as a tight-knit crew shooting localized passion projects rapidly expanded into an international outfit producing films, architectural visuals, and commercial content.
+              
+
+            Founded in Mexico in 2026, THRTN is an independent creative studio built around the power of visual expression.
+
+            We create work that explores emotion, atmosphere, and perspective — finding the feeling within a place, a moment, a person, or an idea, and giving it a visual form.
+
+            Our approach is intuitive yet intentional, blending creative instinct with a meticulous eye for detail to create work that feels honest, distinctive, and enduring.
+
+            At its core, THRTN is about one thing: making people feel something.
             </p>
             <p className="font-inter text-sm md:text-base text-[var(--white-sand)]/75 font-light leading-relaxed">
-              We operate at the intersection of technical precision and artistic intuition—combining dynamic camera movement, specialized FPV drone work, and meticulous post-production workflows.
+              We combine technical precision with artistic intuition — shaping movement, light, composition, sound, and technology into visual experiences that carry a feeling beyond the frame.
+
             </p>
           </div>
 
@@ -103,59 +113,26 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 4. CAPABILITIES GRID */}
-        <section className="mb-24 md:mb-32 border-t border-[var(--cognac)]/20 pt-16">
-          <div className="mb-12">
-            <span className="font-metropolis text-xs tracking-[0.2em] text-[var(--cognac)] uppercase font-bold block mb-2">
-              WHAT WE DO
-            </span>
-            <h2 className="font-metropolis text-2xl md:text-4xl font-bold uppercase tracking-tight">
-              CORE CAPABILITIES
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {CAPABILITIES.map((cap, i) => (
-              <div 
-                key={i} 
-                className="p-8 rounded-xl bg-[var(--blue-coral)]/10 border border-[var(--cognac)]/20 hover:border-[var(--cognac)] transition-all duration-300 group"
-              >
-                <span className="font-inter text-xs tracking-widest text-[var(--cognac)] uppercase block mb-4 group-hover:text-[var(--white-sand)] transition-colors">
-                  0{i + 1}
-                </span>
-                <h3 className="font-metropolis text-xl font-bold text-[var(--white-sand)] tracking-wider mb-3 uppercase">
-                  {cap.title}
-                </h3>
-                <p className="font-inter text-sm text-[var(--white-sand)]/70 font-light leading-relaxed">
-                  {cap.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
       </div>
 
-      {/* 5. CALL TO ACTION BLOCK (Full Width, Borde a Borde) */}
-      <section className="w-full bg-[var(--cognac)] text-[var(--white-sand)] py-20 md:py-28 px-6 md:px-12 text-center shadow-2xl border-t border-[var(--white-sand)]/10">
-        <div className="max-w-4xl mx-auto">
-          <span className="font-metropolis text-xs tracking-[0.25em] text-[var(--white-sand)]/80 uppercase block mb-3 font-bold">
-            START A PROJECT
-          </span>
-          <h2 className="font-metropolis text-3xl md:text-6xl font-extrabold tracking-tight uppercase mb-6">
-            HAVE A VISION IN MIND?
-          </h2>
-          <p className="font-inter text-sm md:text-base text-[var(--white-sand)]/90 max-w-xl mx-auto mb-10 font-normal leading-relaxed">
-            We are available for commercial commissions, documentary productions, and creative collaborations worldwide.
-          </p>
-          <a
-            href="mailto:contact@thrtn.com"
-            className="inline-block font-inter text-xs tracking-widest uppercase font-bold bg-[var(--bg-dark)] text-[var(--white-sand)] px-8 py-4 rounded-full hover:bg-[var(--rouge-noir)] transition-colors shadow-lg border border-[var(--white-sand)]/20"
-          >
-            GET IN TOUCH →
-          </a>
-        </div>
-      </section>
+<section className="w-full bg-[var(--cognac)] text-[var(--white-sand)] py-28 md:py-40 px-6 text-center">
+
+  <div className="max-w-5xl mx-auto">
+
+    <h2 className="font-metropolis text-5xl md:text-8xl font-extrabold tracking-tight uppercase">
+      LET’S MAKE<br />SOMETHING FELT.
+    </h2>
+
+    <a
+      href="mailto:contact@thrtn.com"
+      className="inline-block mt-12 font-inter text-xs tracking-widest uppercase font-bold border border-[var(--white-sand)]/40 px-8 py-4 rounded-full hover:bg-[var(--white-sand)] hover:text-[var(--bg-dark)] transition-all"
+    >
+      GET IN TOUCH →
+    </a>
+
+  </div>
+
+</section>
 
       {/* Footer */}
       <Footer />
