@@ -73,7 +73,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 3. FOUNDER SECTION */}
+        {/* 3. FOUNDER SECTION 
         <section className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-28 md:mb-36 border-t border-[var(--cognac)]/20 pt-16">
           <div className="md:col-span-6 order-2 md:order-1 relative">
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden border border-[var(--cognac)]/30 bg-[var(--rouge-noir)]/20 shadow-2xl">
@@ -111,7 +111,7 @@ export default function AboutPage() {
               </span>
             </div>
           </div>
-        </section>
+        </section>*/}
 
       </div>
 
@@ -132,7 +132,7 @@ export default function AboutPage() {
 
   </div>
 
-</section>
+</section> 
 
       {/* Footer */}
       <Footer />
