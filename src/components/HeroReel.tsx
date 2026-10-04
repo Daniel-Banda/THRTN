@@ -56,7 +56,7 @@ export default function HeroReel() {
             A VISUAL LANGUAGE
         </span>
         <span className="font-kiona text-2xl md:text-5xl font-normal tracking-tighter text-[#E1DACB]/80 block -mt-2 md:-mt-3">
-            FOR HUMAN EMOTION
+            FOR SPACES & BRANDS
         </span>
         </h1>
         </motion.div>

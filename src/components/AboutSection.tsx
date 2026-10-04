@@ -27,7 +27,7 @@ export default function AboutSection() {
             WHO WE ARE
           </span>
           <p className="font-inter text-sm md:text-base text-[var(--white-sand)]/90 leading-relaxed font-light">
-            THRTN is a creative production studio based in Mexico, available worldwide. We produce films, photography, and visual experiences for brands that want to make an impression.
+            THRTN is a cinematic production studio specializing in architecture, high-end real estate, and commercial storytelling. We turn physical spaces and bold ideas into high-impact visual assets.
           </p>
         </div>
 
