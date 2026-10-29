@@ -1,13 +1,20 @@
 'use client';
 
-interface ClientLogo {
+import Image from 'next/image';
+
+interface ClientItem {
   id: string;
   name: string;
   logoUrl?: string;
+  subtitle?: string;
 }
 
-const CLIENTS: ClientLogo[] = [
-  { id: '1', name: 'CATCH' },
+const CLIENTS: ClientItem[] = [
+  { 
+    id: '1', 
+    name: 'VIVE ELIT INMOBILIARIA', 
+    logoUrl: '/images/clients/LogoViveElit.png' 
+  },
   { id: '2', name: 'CLIPSAL SOLAR' },
   { id: '3', name: 'HEARING AUSTRALIA' },
 ];
@@ -36,23 +43,32 @@ export default function AboutSection() {
         {/* SOME OF OUR CLIENTS */}
         {hasClients && (
           <div>
-            <span className="font-metropolis text-xs tracking-[0.2em] text-[var(--cognac)] uppercase block mb-10 font-bold text-center">
+            <span className="font-metropolis text-xs tracking-[0.2em] text-[var(--cognac)] uppercase block mb-12 font-bold text-center">
               SOME OF OUR CLIENTS
             </span>
 
-            <div className={`flex flex-wrap items-center ${justifyClass} gap-y-10 gap-x-8 w-full`}>
+            <div className={`flex flex-wrap items-center ${justifyClass} gap-y-12 gap-x-8 w-full`}>
               {CLIENTS.map((client) => (
                 <div 
                   key={client.id}
-                  className="flex items-center justify-center p-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 min-w-[140px] md:min-w-[180px] flex-1 max-w-[250px]"
+                  className="flex flex-col items-center justify-center gap-2 p-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 min-w-[200px] md:min-w-[260px] flex-1 max-w-[320px] mx-auto"
                 >
+                  {/* Contenedor del Logo (Grande: h-24 / md:h-32) */}
                   {client.logoUrl ? (
-                    <img src={client.logoUrl} alt={client.name} className="max-h-10 w-auto object-contain" />
-                  ) : (
-                    <span className="font-kiona text-base md:text-lg tracking-widest text-[var(--white-sand)] text-center">
-                      {client.name}
-                    </span>
-                  )}
+                    <div className="relative h-24 md:h-32 w-full max-w-[260px]">
+                      <Image 
+                        src={client.logoUrl} 
+                        alt={`${client.name} Logo`} 
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  ) : null}
+
+                  {/* Nombre abajo del logo (Más cerca del logo) */}
+                  <span className="font-kiona text-sm md:text-base tracking-[0.2em] text-[var(--white-sand)] text-center block">
+                    {client.name}
+                  </span>
                 </div>
               ))}
             </div>

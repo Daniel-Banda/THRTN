@@ -1,48 +1,31 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'Music' | 'Fashion' | 'Commercial' | 'Documentary';
+  category: 'Music' | 'Fashion' | 'Commercial' | 'Documentary' | 'Architecture' | 'Real Estate';
   client: string;
   year: string;
-  videoUrl: string;
-  thumbnailUrl: string;
+  vimeoUrl: string;     // Aquí pones el link completo de Vimeo (ej: 'https://vimeo.com/123456789' o solo el ID)
+  thumbnailUrl: string; // Aquí pones la ruta de tu imagen (ej: '/images/work/mi-foto.jpg' o una URL)
 }
 
 export const FEATURED_PROJECTS: Project[] = [
   {
     id: '1',
+    title: 'VIVE ELIT RESIDENCE',
+    category: 'Commercial',
+    client: 'VIVE ELIT INMOBILIARIA',
+    year: '2026',
+    vimeoUrl: 'https://vimeo.com/1239687920', // Tu enlace de Vimeo
+    thumbnailUrl: '/images/work/vive-elit-thumb.jpg', // Tu imagen miniatura elegida
+  },
+  {
+    id: '2',
     title: 'DARK SUNRISE',
     category: 'Fashion',
     client: 'BALENCIAGA CONCEPT',
     year: '2026',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-fashion-model-in-a-black-outfit-41312-large.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800'
+    vimeoUrl: 'https://vimeo.com/76979871',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800', // O una URL externa de ejemplo
   },
-  {
-    id: '2',
-    title: 'ECHOES OF MEXICO',
-    category: 'Documentary',
-    client: 'INDEPENDENT',
-    year: '2025',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800'
-  },
-  {
-    id: '3',
-    title: 'NOCTURNAL MOVEMENT',
-    category: 'Music',
-    client: 'SOHN',
-    year: '2026',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-dancer-performing-in-a-dark-room-41315-large.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=800'
-  },
-  {
-    id: '4',
-    title: 'ARCHITECTURAL GRAVITY',
-    category: 'Commercial',
-    client: 'HYATT HOTEL CDMX',
-    year: '2025',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-city-buildings-at-night-1191-large.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800'
-  }
+  // Agrega más proyectos aquí...
 ];
